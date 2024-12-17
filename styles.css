@@ -1,0 +1,739 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+    background-color: grey;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+@font-face {
+    font-family: 'GlassAntiquaRegular';
+    src: url('./fonts/Khula-Bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KanitBold';
+    src: url('./fonts/Kanit-Bold.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    font-family: 'KanitBold';
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #333333;
+}
+
+.loadingScr {
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    
+    animation: fade-loadingScr 1s 1;
+    -webkit-animation:fade-loadingScr 1s 1;
+    animation-fill-mode: forwards;
+    
+    animation-delay: 3s;
+    -webkit-animation-delay:3s; /* Safari and Chrome */
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fade-loadingScr {
+    0% {opacity: 1; z-index: 50}
+    80% {opacity: 0; z-index: 50}
+    100% {opacity: 0; z-index: -5}
+}
+
+@-webkit-keyframes fade-loadingScr {
+    0% {opacity: 1; z-index: 50}
+    80% {opacity: 0; z-index: 50}
+    100% {opacity: 0; z-index: -5}
+}
+
+lottie-player {
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    color:aliceblue;
+    font-family: 'GlassAntiquaRegular';
+    font-size: 4rem;
+    z-index: 3;
+}
+
+h1.typewriter {
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0; /* Start fully hidden */
+    transition: opacity 0.3s ease;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.cursor {
+    display: inline;
+    font-weight: bold;
+    animation: blink 0.8s step-end infinite;
+    color: #ffd2c6;
+}
+
+p {
+    color:aliceblue;
+    font-size: 1rem;
+}
+
+/* Structure */
+
+.container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.scroll-section {
+    height: 100vh; 
+    scroll-snap-align: start; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Lang Toggle */
+
+.language-toggle-container {
+    position: fixed; /* Fix the position */
+    bottom: 20px;     /* Distance from the bottom */
+    right: 20px;      /* Distance from the right */
+    width: 65px;
+    height: 40px;
+    z-index: 49;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.language-toggle-container:hover {
+    opacity:1;
+}
+
+#languageToggle {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #7c7c7c;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+}
+
+#languageToggle:checked + .slider {
+    background-color: #7c7c7c; /* Green for French */
+}
+
+#languageToggle:checked + .slider:before {
+    transform: translateX(30px); /* Move to the right for French */
+}
+
+.language-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 15px;
+    font-family: 'KanitBold';
+    transition: opacity 0.3s ease;
+}
+
+#frLabel {
+    left: 10px;
+    opacity: 0;
+}
+
+#enLabel {
+    right: 10px;
+    opacity: 1;
+}
+
+#languageToggle:checked + .slider #frLabel {
+    opacity: 1; /* Hide English label when French is selected */
+}
+
+#languageToggle:checked + .slider #enLabel {
+    opacity: 0; /* Show French label when French is selected */
+}
+
+
+/* Nav Bar */
+
+nav {
+    width: 100vw;
+    position:fixed;
+    top:0;
+    z-index: 10;
+    background-color: #c6a198;
+    height: 60px;
+}
+
+#outerNav {
+    height:55px;
+    background-color: #333333;
+}
+#innerNav {
+    height: 45px;
+    border-block-end: solid;
+    border-color: #ffd2c6;
+    border-width: 3px;
+}
+
+#linksNav {
+    display: flex;
+    list-style-type: none;
+    float: right;
+}
+
+#yuliaNav {
+    display: flex;
+    list-style-type: none;
+    float: left;
+}
+
+nav li {
+    color:aliceblue;
+    font-size: 1.5rem;
+    margin: 0 20px;
+}
+
+/* Main Page */
+
+.mainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #333333;
+}
+
+.mainContent .mainVid {
+    object-fit: cover;
+    width: 90vw;
+    height: 90vh;
+    margin-top: 5vh;
+    border-radius: 30px;
+    z-index: 1;
+}
+.bckVid {
+    position: absolute;
+    object-fit: cover;
+    margin-top:5vh;
+     width: 95vw;
+    height: 95vh;
+    z-index: 0;
+    opacity: 0.5;
+    filter: blur(34px);
+}
+
+.logo {
+    position: absolute;
+    height: 35vw;
+    min-height: 300px;
+    max-height: 900px;
+    z-index: 1;
+}
+
+/* Music Page */
+
+.music-page {
+    width: 100%;
+    height:100%;
+}
+.backgroundMusic {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.backgroundMusic {
+    z-index: 0;
+}
+.music-page #albumBackground {
+    position: absolute;
+    height: 50vh;
+    left: 100%;
+    mix-blend-mode: lighten;
+    filter: blur(30px);
+    opacity: 0.5;
+}
+
+.musicContent {
+    z-index: 3;
+    text-align: center;
+    margin-right: 4vw;
+}
+
+
+.musicContent #controls {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0 30px 7%;
+}
+
+.custom-audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.song-info {
+    width: 250px;
+    overflow: hidden;
+    display: absolute;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: -10px;
+}
+
+#songName {
+    display: inline-block;
+    padding-left: 100%; /* Start off-screen to the right */
+    animation: scrollSong 7s linear infinite; /* Change 10s to adjust the speed */
+}
+
+@keyframes scrollSong {
+    0% {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    100% {
+        transform: translateX(-100%); /* End off-screen to the left */
+    }
+}
+
+.musicSelector {
+    z-index: 5;
+    max-width: 90vw;
+    margin-top: -70px;
+}
+
+.musicSelector ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.musicSelector li {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #616161;
+    margin: 5px 0;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.musicSelector li span, .musicSelector li {
+        height: 50px;
+        padding: 5px 10px 0 10px;
+        border-radius: 5px;
+    }
+
+.musicSelector li:hover {
+    opacity: 1;
+    color:#333;
+    background-color: #c6a198;
+}
+
+.musicSelector .songNumber,
+.musicSelector .songTitle,
+.musicSelector .songLength {
+    display: inline-block;
+}
+
+.controls {
+    margin-top: 1vh;
+    justify-content: center;
+}
+
+button {
+    margin: 1vw;
+    padding: 1vw;
+    background-color: rgba(240, 248, 255, 0);
+    border-color:rgba(240, 248, 255, 0);
+    z-index:7;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+button img:hover {
+    filter: brightness(0.8);
+}
+
+#audioPlayer {
+    margin-top: 20px;
+
+}
+
+.music-page #albumArt {
+    width: 50vw;
+    min-width: 250px;
+    max-width: 400px;
+    border-radius: 30px;
+}
+
+/* About Me Page */
+
+.about-page {
+    width: 100%;
+    height: 100%;
+}
+
+.about-page p{
+    font-size: 20px;
+    width: 400px;
+
+}
+.abt-txt {
+    padding-right: 40px;
+    text-align: center;
+}
+.about-page #readyImg {
+    width: 40vw;
+    max-width: 550px;
+    transition: 2s ease-in-out;
+}
+.about-page #readyImg:hover {
+    transform: scale(1.1);
+}
+
+/* Photos Page */
+
+.photo-page {
+    display: inherit;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    height:100%;
+}
+
+.photo-column, .photo-column2, .photo-column3{
+    display: flex;
+    overflow-y: hidden;
+    gap: 20px;
+    padding: 30px 0;
+    margin: -30px 0;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.photo-column::-webkit-scrollbar, .photo-column2::-webkit-scrollbar, .photo-column3::-webkit-scrollbar{
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.photo-row1, .photo-row2, .photo-row3{
+    display: flex;
+    gap: 10px; /* Adjust as needed */
+}
+
+.photo-row1 img, .photo-row2 img, .photo-row3 img {
+    height: 22vh;
+    min-height: 200px;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+}
+
+.photo-row1 img:hover, .photo-row2 img:hover, .photo-row3 img:hover {
+    transform: scale(1.2);
+    z-index: 30;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fullscreen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 31;
+}
+
+.back-button {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0;
+}
+
+/* Contact Page */
+.contact-page {
+    display: inherit;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    height:100%;
+}
+
+.contact-page h1 {
+    text-align: center;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+}
+.contact-info {
+    border-radius: 30px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #c6a198;
+    margin-right: 10px;
+    padding: 20px;
+}
+.contact-info h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.contact-info p {
+    width: 190px;
+    min-width: 190px;
+}
+
+.contact-form {
+    border-radius: 30px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #ffd2c6;
+    margin-left: 10px;
+}
+.contact-form input {
+    font-family: 'KanitBold';
+    font-size: medium;
+    color: white;
+    height: 50px;
+    width: 300px;
+    margin: 20px;
+    background-color: #484848;
+    border-width: 0;
+    border-radius: 5px;
+}
+.contact-form textarea {
+    font-family: 'KanitBold';
+    font-size: medium;
+    color: white;
+    height: 150px;
+    width: 300px;
+    margin: 20px;
+    background-color: #484848;
+    border-width: 0;
+    border-radius: 5px;
+    resize: none;
+}
+.contact-form button {
+    font-family: 'KanitBold';
+    font-size: medium;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 120px 10px 120px;
+}
+/* Viewport Size */
+@media screen and (max-width: 600px) {
+    /* Nav */
+    #linksNav {
+        display: none;
+    }
+    #yuliaNav {
+        justify-content: center;
+        align-content: center;
+        left:50%;
+        float:inherit;
+    }
+    /* Main */
+    .mainContent video {
+        width: 100vw;
+        height:100vh;
+        border-width: 0;
+    }
+    /* Music */
+    .music-page {
+        display: inherit;
+    }
+    .music-page #albumArt {
+        margin-left: 15px;
+    }
+    .music-page h1 {
+        margin-top: 50px;
+        padding-left: 30px;
+    }
+    .music-page p {
+        size: 3px;
+        width: 90vw;
+        max-width: 6px;
+        left: 50%;
+        top: 50%;
+    }
+    .controls {
+        margin-left: 20px;
+    }
+    #albumBackground {
+        display: none;
+    }
+    .musicSelector {
+        margin-top: 0;
+        height: 15%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        position: relative;
+        -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+        mask-image: -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
+        mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+        transition: 0.3s ease-in-out;
+    }
+    .musicSelector li span, .musicSelector li {
+        height: 35px;
+        padding: 0 5px 0 5px;
+        border-radius: 5px;
+    }
+    .musicSelector::-webkit-scrollbar {
+        display: none;
+    }
+    /* About Page */
+    .about-page {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    #readyImg {
+        position: absolute;
+        min-width: 400px;
+        z-index: 0;
+        opacity: 0.4;
+    }
+    .abt-txt {
+        padding: 0;
+        margin: 20px;
+        z-index: 5;
+    }
+    .abt-txt p {
+        width: 330px;
+        font-size: 17px;
+    }
+    .about-page #readyImg:hover {
+        transform: scale(1) translate(0);
+    }
+    /* Photo Page */
+    .photo-page h1 {
+        transform: translateY(25%);
+        margin: 25px 0;
+    }
+    /* Contact Page */
+    .contact-page {
+        display: inherit;
+    }
+    .contact-info {
+        display: none;
+    }
+    .contact-page h1 {
+        transform: translateY(50%);
+        text-align: center;
+    }
+    .contact-form {
+        text-align: center;
+        height: 405px;
+        margin-top: 40px;
+    }
+    .contact-form input {
+        margin: 8px 15px 8px 15px;
+        height: 40px;
+    }
+    .contact-form textarea {
+        height: 100px;
+        margin: 10px;
+    }
+    .contact-form button {
+        margin: 0 10px 10px 10px;
+    }
+}
+@media screen and (max-height: 670px) {
+    /* About Me Page */
+    .about-page #readyImg {
+        max-height: 600px;
+        max-width: 370px;
+    }
+    /* Photo Page */
+    .photo-column3 {
+        height:0;
+        opacity: 0;
+    }
+}

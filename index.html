@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <script src="script.js" defer></script>
+        <title>Yulia Project</title>
+    </head>
+    <body>
+        <div class="loadingScr">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+            <lottie-player src="https://lottie.host/a74d1757-eb09-4de5-9d66-7b33cc0d8dfd/1VD3sQinFC.json" background="##000000" speed="1" style="width: 30vh; height: 30vh" loop autoplay direction="1" mode="normal"></lottie-player>
+        </div>
+        <nav>
+            <div id="outerNav">
+                <div id="innerNav">
+                    <ul id="yuliaNav">
+                        <li><a href="#main-page">Yulia</a></li>
+                    </ul>
+                    <ul id="linksNav">
+                        <li><a href="#music-page">Music</a></li>
+                        <li><a href="#about-page">About</a></li>
+                        <li><a href="#photo-page">Photos</a></li>
+                        <li><a href="#contact-page">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="main-page scroll-section">
+                <div id="main-page" class="mainContent">
+                    <video class="bckVid" loop autoplay muted preload="auto" src="Yulia.m4v"></video>
+                    <video class="mainVid" loop autoplay muted preload="auto" src="Yulia.m4v"></video>
+                    <img class="logo" src="./ui/yuliaLogo.png"/>
+                </div>
+            </div>
+            <div id="music-page" class="music-page scroll-section">
+                <div class="backgroundMusic">
+                    <img id="albumBackground" src="albumcover.png"/>
+                </div>
+                <div class="musicContent">
+                    <h1 class="typewriter" data-translate="musicTitle"></h1>
+                    <img id="albumArt" src="albumcover.png"/>
+                    <div class="custom-audio-player">
+                        <div class="song-info">
+                            <div id="songName">Select an Audio Clip</div>
+                        </div>
+                        <audio id="audioPlayer" preload="auto"></audio>
+                    </div>
+                    <div class="controls">
+                        <button id="prevBtn"><img style="width: 50px; margin-bottom: 10px;" src="./ui/rwBtn.png" alt="Rewind 15s"></button>
+                        <button id="playPauseBtn"><img style="width: 80px" src="./ui/playBtn.png" alt="Play/Pause"></button>
+                        <button id="nextBtn"><img style="width: 50px; margin-bottom: 10px;" src="./ui/ffBtn.png" alt="Fast Forward 15s"></button>
+                    </div>
+                </div>
+                <div class="musicSelector">
+                    <ul>
+                        <li data-clip="clip1" data-song="song1.mp3">
+                            <span class="songNumber">1.</span>
+                            <span class="songTitle">E Ritorno Da Te - Laura Pausini</span>
+                            <span class="songLength">3:58</span>
+                        </li>
+                        <li data-clip="clip2" data-song="song2.mp3">
+                            <span class="songNumber">2.</span>
+                            <span class="songTitle">Face a la Mer - Calogero &amp; Passl</span>
+                            <span class="songLength">3:33</span>
+                        </li>
+                        <li data-clip="clip3" data-song="song3.mp3">
+                            <span class="songNumber">3.</span>
+                            <span class="songTitle">Hello - Adele</span>
+                            <span class="songLength">4:55</span>
+                        </li>
+                        <li data-clip="clip4" data-song="song4.mp3">
+                            <span class="songNumber">4.</span>
+                            <span class="songTitle">I'm Alive - Céline Dion</span>
+                            <span class="songLength">3:30</span>
+                        </li>
+                        <li data-clip="clip5" data-song="song5.mp3">
+                            <span class="songNumber">5.</span>
+                            <span class="songTitle">Le Ballet - Céline Dion</span>
+                            <span class="songLength">4:21</span>
+                        </li>
+                        <li id="endSelect" data-clip="clip6" data-song="song6.mp3">
+                            <span class="songNumber">6.</span>
+                            <span class="songTitle">The Reason - Céline Dion</span>
+                            <span class="songLength">4:56</span>
+                        </li>
+                    </ul>
+                </div>        
+            </div>
+            <div id="about-page" class="about-page scroll-section">
+                <img id="readyImg" src="ready.png"/>
+                <div class="abt-txt">
+                    <h1 class="typewriter" data-translate="aboutTitle"></h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br><br>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div id="photo-page" class="photo-page scroll-section">
+                <h1 class="typewriter" data-translate="photosTitle"></h1>
+                <div class="photo-column">
+                    <div class="photo-row1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image1.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image2.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image3.png" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image4.jpeg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image13.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image5.jpeg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image6.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image7.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image8.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image14.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image9.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image10.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image11.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image12.JPeg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image15.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image1.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image2.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image3.png" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image4.jpeg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image13.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image5.jpeg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image6.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image7.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image8.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image14.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image9.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image10.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image11.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image12.JPeg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image15.jpg" alt="Photo 1">
+                    </div>
+                </div>
+                <br>
+                <div class="photo-column2">
+                    <div class="photo-row2">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image1.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image2.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image3.png" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image4.jpeg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image13.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image5.jpeg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image6.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image7.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image8.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image14.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image9.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image10.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image11.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image12.JPeg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image15.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image1.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image2.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image3.png" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image4.jpeg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image13.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image5.jpeg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image6.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image7.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image8.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image14.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image9.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image10.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image11.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image12.JPeg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image15.jpg" alt="Photo 1">
+                    </div>
+                </div>
+                <br>
+                <div class="photo-column3">
+                    <div class="photo-row3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image1.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image2.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image3.png" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image4.jpeg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image13.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image5.jpeg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image6.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image7.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image8.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image14.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image9.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image10.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image11.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image12.JPeg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image15.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image1.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image2.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image3.png" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image4.jpeg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image13.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image5.jpeg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image6.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image7.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image8.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image14.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image9.jpg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image10.jpg" alt="Photo 1">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image11.jpg" alt="Photo 2">
+                        <img class="gallery-image" min-width="150px" width="400vw" src="./images/image12.JPeg" alt="Photo 3">
+                        <img class="gallery-image" min-width="150px" width="200vw" src="./images/image15.jpg" alt="Photo 1">
+                    </div>
+                    <div class="fullscreen" id="fullscreen">
+                        <button class="back-button" onclick="closeFullscreen()"></button>
+                        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+                     </div>
+                </div>
+            </div>
+            <div id="contact-page" class="contact-page scroll-section">
+                <h1 class="typewriter" data-translate="contactTitle"></h1>
+                <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get In <br> Touch</h2>
+                    <p> Whether youre looking to: <br><br>. Book a Live Show<br>. Ask about Collaborations<br>. Or Simply Get in Touch<br><br>Feel Free to Reach Out! <br><br> Based in the heart of Paris, I'm always excited <br>to bring my music to new venues &amp; connect <br>with fans <br><br> Lets create something unforgettable together</p>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" id="name" name="name" onfocus="this.value=''" placeholder="  Name" required><br>
+                        <input type="email" id="email" name="email" placeholder="  Email Address" onfocus="this.value=''" required><br>
+                        <input type="tel" id="phonenum" name="phonenum" placeholder="  Phone Number (Optional)" onfocus="this.value=''"><br>
+                        <input type="text" id="subject" name="subject" placeholder="  Subject" onfocus="this.value=''" required><br>
+                        <textarea id="note" name="note" rows="4" placeholder="  Message" onfocus="clearContents(this);" required></textarea>
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="language-toggle-container">
+            <input type="checkbox" id="languageToggle" />
+            <label for="languageToggle" class="slider">
+                <span class="language-label" id="enLabel">En</span>
+                <span class="language-label" id="frLabel">Fr</span>
+            </label>
+        </div>
+    </body>
+</html>
